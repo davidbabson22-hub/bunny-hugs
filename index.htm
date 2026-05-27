@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bunny Hugs Baby Diaper | Premium Comfort</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#FAF8F5] text-slate-700 overflow-x-hidden">
+
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav class="navbar" id="navbar">
+    <div class="flex items-center gap-3">
+      <div class="logo-mark">B</div>
+      <div>
+        <div class="logo-text text-slate-800">BUNNY HUGS</div>
+        <div class="logo-subtext">Premium Care</div>
+      </div>
+    </div>
+    
+    <div class="nav-links" id="desktopNavLinks">
+      <a href="index.html" class="active-link">Home</a>
+      <a href="#features">Features</a>
+      <a href="#story">Our Story</a>
+      <a href="#faq">FAQ</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+
+    <div class="desktop-cta">
+      <a href="contact.html" class="btn-primary">Order Bulk</a>
+    </div>
+
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation Menu">
+      <span class="hamburger-line line-1"></span>
+      <span class="hamburger-line line-2"></span>
+      <span class="hamburger-line line-3"></span>
+    </button>
+  </nav>
+
+  <div class="mobile-nav-overlay" id="mobileNavOverlay">
+    <div class="mobile-nav-links">
+      <a href="index.html">Home</a>
+      <a href="#features">Features</a>
+      <a href="#story">Our Story</a>
+      <a href="#faq">FAQ</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="contact.html" class="btn-primary w-full text-center mt-4">Order Bulk</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <canvas id="particles"></canvas>
+    
+    <div class="bg-circle bc-1"></div>
+    <div class="bg-circle bc-2"></div>
+    <div class="bg-circle bc-3"></div>
+
+    <div class="hero-content">
+      <div class="reveal-left">
+        <div class="hero-eyebrow">
+          <span class="dot-pulse"></span>
+          <span>Pure Softness & Protection</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="line-wrap text-slate-800">Gentle Hugs For</span>
+          <span class="line-wrap accent">Your Precious One.</span>
+        </h1>
+        <p class="hero-sub">
+          Carefully crafted with premium, hypoallergenic cloud-touch fibers tested on sensitive newborn skin. Because your baby deserves maximum protection without compromising on absolute comfort.
+        </p>
+        
+        <div class="hero-ctas">
+          <a href="contact.html" class="btn-primary">Explore Products</a>
+          <a href="#story" class="btn-outline">Learn More</a>
+        </div>
+
+        <div class="stats-row" id="heroStats">
+          <div>
+            <div class="stat-num" data-target="100" data-suffix="%">0%</div>
+            <div class="stat-label">Hypoallergenic</div>
+          </div>
+          <div>
+            <div class="stat-num" data-target="12" data-suffix="hr">0hr</div>
+            <div class="stat-label">Leak Protection</div>
+          </div>
+          <div>
+            <div class="stat-num" data-target="50" data-suffix="k+">0k+</div>
+            <div class="stat-label">Happy Parents</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-wrap reveal-right" id="heroImageWrap">
+        <div class="glow-ring"></div>
+        <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=900&auto=format&fit=crop" class="hero-img" alt="Happy infant smiling">
+        
+        <div class="badge badge-1">
+          <div class="badge-icon b-icon-1"><i data-lucide="shield-check" class="w-5 h-5 text-[#5A8396]"></i></div>
+          <div>
+            <div class="badge-title">Safety Shield</div>
+            <div class="badge-body text-slate-700">Dermatologist Approved</div>
+          </div>
+        </div>
+
+        <div class="badge badge-2">
+          <div class="badge-icon b-icon-2"><i data-lucide="cloud" class="w-5 h-5 text-[#C480A3]"></i></div>
+          <div>
+            <div class="badge-title">Material</div>
+            <div class="badge-body text-slate-700">Cloud-Touch Fiber</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wave-divider">
+      <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full h-[60px] lg:h-[100px]">
+        <path d="M0,32L60,42.7C120,53,240,75,360,74.7C480,75,600,53,720,48C840,43,960,53,1080,64C1200,75,1320,85,1380,90.7L1440,96L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z" fill="#ffffff"></path>
+      </svg>
+    </div>
+  </section>
+
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span>✨ 100% Breathable Shell Cotton</span>
+      <span>🌿 Ultra-Sensitive Rash Guard Infused</span>
+      <span>☁️ Zero Bleach Chemical Treatment</span>
+      <span>✨ 100% Breathable Shell Cotton</span>
+      <span>🌿 Ultra-Sensitive Rash Guard Infused</span>
+      <span>☁️ Zero Bleach Chemical Treatment</span>
+    </div>
+  </div>
+
+  <section class="features-section" id="features">
+    <div class="section-inner">
+      <div class="features-header reveal">
+        <span class="section-tag">Core Safeguards</span>
+        <h2 class="section-title text-slate-800">Engineered For Comfort.</h2>
+        <p class="features-desc">Every individual asset inside a Bunny Hugs diaper is fine-tuned to maintain pristine skin environments for active developing children.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feat-card blue-card reveal">
+          <div class="feat-icon f-icon-blue"><i data-lucide="droplet" class="w-7 h-7"></i></div>
+          <h3 class="text-slate-800">Advanced Core Fluid Lock</h3>
+          <p class="text-slate-600">Quickly pulls moisture away into our localized crystal polymer channel matrices keeping baby thoroughly dry.</p>
+        </div>
+
+        <div class="feat-card pink-card reveal">
+          <div class="feat-icon f-icon-pink"><i data-lucide="wind" class="w-7 h-7"></i></div>
+          <h3 class="text-slate-800">Micro-pore Aeration Shell</h3>
+          <p class="text-slate-600">Millions of microscopic pathways allow trapped skin heat to vent outwards completely eliminating moisture rashes.</p>
+        </div>
+
+        <div class="feat-card yellow-card reveal">
+          <div class="feat-icon f-icon-yellow"><i data-lucide="activity" class="w-7 h-7"></i></div>
+          <h3 class="text-slate-800">3D Flex Contour Bands</h3>
+          <p class="text-slate-600">Elastic memory waistband wraps and stretches easily to prevent physical blowouts during playtime movement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="showcase-section">
+    <div class="section-inner showcase-grid">
+      <div class="showcase-img-wrap reveal-left">
+        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=900&auto=format&fit=crop" class="showcase-img" alt="Mother playing with baby">
+        <div class="showcase-pill p1"><i data-lucide="zap" class="w-4 h-4 text-amber-500"></i> Instant Dry Action</div>
+        <div class="showcase-pill p2"><i data-lucide="feather" class="w-4 h-4 text-sky-400"></i> Weightless Comfort Fit</div>
+      </div>
+
+      <div class="reveal-right">
+        <span class="section-tag">Lab Diagnostics Metric</span>
+        <h2 class="section-title text-slate-800">Unmatched Absorbency Standards.</h2>
+        <p class="showcase-desc">We challenge typical market diaper parameters, verifying our production cycles through intensive fluid density load tests.</p>
+        
+        <div class="progress-item">
+          <div class="progress-label"><span>Absorption Rate Speed</span><span>99.4%</span></div>
+          <div class="progress-track"><div class="progress-fill" data-width="99.4"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-label"><span>Airflow Permeability Consistency</span><span>96.2%</span></div>
+          <div class="progress-track"><div class="progress-fill" data-width="96.2"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-label"><span>Elastic Stretch Elasticity Index</span><span>92.8%</span></div>
+          <div class="progress-track"><div class="progress-fill" data-width="92.8"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story-section" id="story">
+    <div class="wave-top">
+      <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full h-[40px]">
+        <path d="M0,40 C360,0 1080,80 1440,40 L1440,0 L0,0 Z" fill="#ffffff"/>
+      </svg>
+    </div>
+
+    <div class="section-inner story-inner-wrap">
+      <div class="story-grid">
+        <div class="reveal-left">
+          <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=900&auto=format&fit=crop" class="story-img" alt="Baby resting calmly">
+        </div>
+
+        <div class="reveal-right flex flex-col gap-6">
+          <div>
+            <span class="section-tag text-[#9EC5D9]">Our Story</span>
+            <h2 class="section-title glow-text">Designed Around<br>Real Parenting.</h2>
+            <p class="story-desc">
+              Bunny Hugs was born from a simple belief: every baby deserves the absolute best. We understand the daily balance of modern parenthood, and we engineered an ultra-premium diaper system that delivers elite protection, gentle softness, and total reliability.
+            </p>
+          </div>
+
+          <div class="story-card">
+            <div class="story-card-header">
+              <div class="story-card-icon sci-blue"><i data-lucide="shield" class="w-5 h-5"></i></div>
+              <div class="story-card-title text-white">Parent-Focused Innovation</div>
+            </div>
+            <p class="story-card-text text-slate-300">Built on real, hands-on feedback from families to address actual daily leakage challenges.</p>
+          </div>
+
+          <div class="story-card">
+            <div class="story-card-header">
+              <div class="story-card-icon sci-yellow"><i data-lucide="heart-handshake" class="w-5 h-5"></i></div>
+              <div class="story-card-title text-white">Premium Quality Materials</div>
+            </div>
+            <p class="story-card-text text-slate-300">Carefully selected, bleach-free fibers optimized to keep sensitive skin irritation-free.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wave-bottom">
+      <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full h-[40px]">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8faff"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="testimonial-section">
+    <div class="section-inner">
+      <div class="text-center max-w-xl mx-auto reveal">
+        <span class="section-tag">Family Love</span>
+        <h2 class="section-title text-slate-800">Trusted By Mothers.</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testi-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"Switching to Bunny Hugs completely ended our overnight leaks. The soft pastel designs match how gentle it is on my daughter's skin!"</p>
+          <div class="testi-author">
+            <div class="testi-avatar">AM</div>
+            <div>
+              <div class="testi-name text-slate-800">Amina Musa</div>
+              <div class="testi-role">Verified Parent</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"The materials feel incredibly premium, almost like soft linen. No diaper rashes or friction marks since we started using them."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">CE</div>
+            <div>
+              <div class="testi-name text-slate-800">Chidi Eke</div>
+              <div class="testi-role">Father of Twins</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="testi-text">"Excellent absorption speed. My son stays completely dry during active play, and the flexible fit keeps things clean."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">BO</div>
+            <div>
+              <div class="testi-name text-slate-800">Blessing Okafor</div>
+              <div class="testi-role">New Mother</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <div class="section-inner">
+      <div class="text-center max-w-xl mx-auto reveal">
+        <span class="section-tag">Common Enquiries</span>
+        <h2 class="section-title text-slate-800">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>Are Bunny Hugs diapers entirely chemical and bleach-free?</span>
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-a">
+            <p>Yes, absolutely. Our production line entirely uses chlorine-free whitening methods and excludes artificial perfumes or parabens to completely protect newborn skin profiles.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>How does the 12-hour advanced barrier core protect overnight?</span>
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-a">
+            <p>Our core utilizes specialized micro-crystals that turn fluid instantly into a locked gel layer, sealing moisture away from the surface even under prolonged sleep pressure.</p>
+          </div>
+        </div>
+
+        <div class="faq-item reveal">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span>Where can I buy bulk items or register as a retail distributor?</span>
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-a">
+            <p>You can route right through our digital Contact page forms, specifying your distribution details, and our localized logistics handlers will reach out with pricing schedules.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="section-inner footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-text text-white">BUNNY HUGS</div>
+        <p>Premium diaper lines engineered around comfort, modern safety structures, and genuine material softness for developing infants.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <a href="index.html">Home</a>
+        <a href="#features">Features</a>
+        <a href="#story">Our Story</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Framework</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Skin Testing Certs</a>
+      </div>
+      <div class="footer-col">
+        <h4>Social Media</h4>
+        <div class="social-row">
+          <a href="#" class="social-btn" aria-label="Facebook Connect"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+          <a href="#" class="social-btn" aria-label="Instagram Monitor"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+          <a href="#" class="social-btn" aria-label="Twitter Feed"><i data-lucide="twitter" class="w-4 h-4"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="section-inner footer-bottom">
+      <p>&copy; 2026 Bunny Hugs Diaper Systems. All Rights Reserved.</p>
+      <p class="footer-tagline">Crafted with Absolute Care</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

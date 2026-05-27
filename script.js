@@ -1,195 +1,169 @@
-// INITIALIZE COMPONENT ICONS
-lucide.createIcons();
+// INITIALIZE ACCENT ICON PACKS
+if (typeof lucide !== 'undefined') {
+  lucide.createIcons();
+}
 
-// MOBILE NAVIGATION LOGIC
+// SMART MOBILE SCREEN NAVBAR SLIDER DEPLOYMENT
 const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 const mobileNavOverlay = document.getElementById('mobileNavOverlay');
-const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
 
-function toggleMobileMenu() {
-  if (!mobileMenuToggle) return;
-  const isOpening = !mobileMenuToggle.classList.contains('active');
-  
-  mobileMenuToggle.classList.toggle('active');
-  mobileNavOverlay.classList.toggle('active');
-  
-  // Disable background movement during overlay viewing
-  document.body.style.overflow = isOpening ? 'hidden' : '';
-}
-
-if (mobileMenuToggle) {
-  mobileMenuToggle.addEventListener('click', toggleMobileMenu);
-}
-
-mobileLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    if (mobileMenuToggle && mobileMenuToggle.classList.contains('active')) {
-      toggleMobileMenu();
-    }
+if (mobileMenuToggle && mobileNavOverlay) {
+  mobileMenuToggle.addEventListener('click', () => {
+    const isActived = mobileMenuToggle.classList.toggle('active');
+    mobileNavOverlay.classList.toggle('active');
+    document.body.style.overflow = isActived ? 'hidden' : '';
   });
-});
 
-// DESKTOP CUSTOM MOUSE CURSOR TRACKING
+  // Handle auto-closing on clicking specific inside link mappings
+  mobileNavOverlay.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenuToggle.classList.remove('active');
+      mobileNavOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+}
+
+// MOUSE COORDINATE TARGET INTERACTION CONTROLLER (DESKTOP)
 const cursor = document.getElementById('cursor');
 const cursorRing = document.getElementById('cursorRing');
-let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+let mx = 0, my = 0, rx = 0, ry = 0;
 
-if (cursor && cursorRing) {
-  document.addEventListener('mousemove', e => {
-    mouseX = e.clientX; 
-    mouseY = e.clientY;
-    cursor.style.left = mouseX + 'px'; 
-    cursor.style.top = mouseY + 'px';
+if (cursor && cursorRing && window.innerWidth > 900) {
+  window.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+    cursor.style.left = mx + 'px';
+    cursor.style.top = my + 'px';
   });
 
-  function animateCursorRing() {
-    ringX += (mouseX - ringX) * 0.12;
-    ringY += (mouseY - ringY) * 0.12;
-    cursorRing.style.left = ringX + 'px';
-    cursorRing.style.top = ringY + 'px';
-    requestAnimationFrame(animateCursorRing);
+  function renderCursorRing() {
+    rx += (mx - rx) * 0.15;
+    ry += (my - ry) * 0.15;
+    cursorRing.style.left = rx + 'px';
+    cursorRing.style.top = ry + 'px';
+    requestAnimationFrame(renderCursorRing);
   }
-  animateCursorRing();
+  renderCursorRing();
 
-  // Attach hover expand states across clickable UI selectors
-  document.querySelectorAll('button, a, .feat-card, .testi-card, input, select, textarea').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.width = '20px'; cursor.style.height = '20px';
-      cursorRing.style.width = '60px'; cursorRing.style.height = '60px';
-      cursorRing.style.borderColor = 'rgba(14,165,233,0.8)';
+  // Attach hover scaling triggers across all interactive system anchors
+  document.querySelectorAll('a, button, input, textarea, .feat-card, .faq-q').forEach(element => {
+    element.addEventListener('mouseenter', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(1.8)';
+      cursorRing.style.transform = 'translate(-50%, -50%) scale(1.4)';
+      cursorRing.style.borderColor = '#5A8396';
     });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.width = '12px'; cursor.style.height = '12px';
-      cursorRing.style.width = '40px'; cursorRing.style.height = '40px';
-      cursorRing.style.borderColor = 'rgba(14,165,233,0.5)';
+    element.addEventListener('mouseleave', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+      cursorRing.style.transform = 'translate(-50%, -50%) scale(1)';
+      cursorRing.style.borderColor = 'rgba(158, 197, 217, 0.6)';
     });
   });
 }
 
-// NAVBAR SCROLL DECORATION MATRIX
+// NAVIGATION TRANSPARENCY DECORATION SYSTEM ON SCROLL
 window.addEventListener('scroll', () => {
   const navbar = document.getElementById('navbar');
-  // Avoid flashing properties on structured static sub-pages (like Contact)
-  if (navbar && !document.title.includes("Contact Us")) {
-    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  if (navbar) {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
   }
+
   const scrollProgress = document.getElementById('scrollProgress');
   if (scrollProgress) {
-    const scrollPct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-    scrollProgress.style.width = scrollPct + '%';
+    const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progressPercentage = (window.scrollY / totalHeight) * 100;
+    scrollProgress.style.width = progressPercentage + '%';
   }
 });
 
-// GSAP HOMEPAGE INTERACTIVE ANIMATIONS
-if (typeof gsap !== 'undefined' && document.getElementById('heroEyebrow')) {
-  gsap.registerPlugin(ScrollTrigger);
-  
-  // Hero section entry sequenzer
-  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-  tl.fromTo('#heroEyebrow', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7 })
-    .fromTo('#heroLine1', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.4')
-    .fromTo('#heroLine2', { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.8 }, '-=0.5')
-    .fromTo('#heroSub', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7 }, '-=0.5')
-    .fromTo('#heroCtas', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
-    .fromTo('#heroStats', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.3')
-    .fromTo('#heroImageWrap', { opacity: 0, x: 80, scale: 0.92 }, { opacity: 1, x: 0, scale: 1, duration: 1.2 }, '-=1.0')
-    .fromTo('.badge', { opacity: 0, scale: 0.7 }, { opacity: 1, scale: 1, duration: 0.5, stagger: 0.15 }, '-=0.5');
-
-  // Global scroll display controllers
-  gsap.utils.toArray('.reveal').forEach(el => {
-    gsap.fromTo(el, { opacity: 0, y: 55 }, { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 82%', toggleActions: 'play none none none' } });
-  });
-
-  gsap.utils.toArray('.reveal-left').forEach(el => {
-    gsap.fromTo(el, { opacity: 0, x: -70 }, { opacity: 1, x: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 80%' } });
-  });
-
-  gsap.utils.toArray('.reveal-right').forEach(el => {
-    gsap.fromTo(el, { opacity: 0, x: 70 }, { opacity: 1, x: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 80%' } });
-  });
-
-  // Performance progress loader filling track metrics
-  document.querySelectorAll('.progress-fill').forEach(bar => {
-    ScrollTrigger.create({ trigger: bar, start: 'top 85%', onEnter: () => { bar.style.width = bar.dataset.width + '%'; } });
-  });
-  
-  // Parallax dynamic drift handling
-  gsap.to('.bg-circle', { y: -60, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.5 } });
-}
-
-// DATA COUNTER TICKER ALGORITHM
-function animateCounter(el, target) {
-  if (target === 0) return;
-  let current = 0;
-  const step = target / 60;
-  const timer = setInterval(() => {
-    current = Math.min(current + step, target);
-    el.textContent = Math.floor(current) + (el.dataset.suffix || '');
-    if (current >= target) clearInterval(timer);
-  }, 20);
+// AUTOMATED DATA NUMBERS TICKER ENGINE
+function runCounterAnimation(targetElement, targetMaxVal) {
+  let initialValue = 0;
+  const speedIncrement = targetMaxVal / 50;
+  const counterTicker = setInterval(() => {
+    initialValue = Math.min(initialValue + speedIncrement, targetMaxVal);
+    targetElement.textContent = Math.floor(initialValue) + (targetElement.dataset.suffix || '');
+    if (initialValue >= targetMaxVal) clearInterval(counterTicker);
+  }, 25);
 }
 
 if (document.querySelector('.stat-num')) {
   setTimeout(() => {
-    document.querySelectorAll('.stat-num[data-target]').forEach(el => {
-      const t = parseInt(el.dataset.target);
-      if (!isNaN(t) && t > 0) animateCounter(el, t);
+    document.querySelectorAll('.stat-num').forEach(metricBlock => {
+      const maxValue = parseInt(metricBlock.getAttribute('data-target'));
+      if (!isNaN(maxValue) && maxValue > 0) {
+        runCounterAnimation(metricBlock, maxValue);
+      }
     });
-  }, 900);
+  }, 400);
 }
 
-// HERO BACKDROP BACKGROUND PARTICLES ENGINE
-const canvas = document.getElementById('particles');
-if (canvas) {
-  const ctx = canvas.getContext('2d');
-  let particles = [];
+// BACKDROP LAYOUT PARTICLES ENGINE
+const particleCanvas = document.getElementById('particles');
+if (particleCanvas) {
+  const context = particleCanvas.getContext('2d');
+  let dotsCollection = [];
 
-  function resizeCanvas() {
-    canvas.width = canvas.offsetWidth;
-    canvas.height = canvas.offsetHeight;
+  function adjustCanvasBounds() {
+    particleCanvas.width = particleCanvas.parentElement.offsetWidth;
+    particleCanvas.height = particleCanvas.parentElement.offsetHeight;
   }
-  resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
+  adjustCanvasBounds();
+  window.addEventListener('resize', adjustCanvasBounds);
 
-  class Particle {
-    constructor() { this.reset(); }
-    reset() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.r = Math.random() * 3 + 1;
-      this.vx = (Math.random() - 0.5) * 0.4;
-      this.vy = (Math.random() - 0.5) * 0.4;
-      this.alpha = Math.random() * 0.4 + 0.1;
-      const colors = ['rgba(14,165,233,', 'rgba(251,191,36,', 'rgba(249,168,212,'];
-      this.color = colors[Math.floor(Math.random() * colors.length)];
+  class ScreenDot {
+    constructor() { this.spawn(); }
+    spawn() {
+      this.x = Math.random() * particleCanvas.width;
+      this.y = Math.random() * particleCanvas.height;
+      this.radius = Math.random() * 2.5 + 1;
+      this.speedX = (Math.random() - 0.5) * 0.3;
+      this.speedY = (Math.random() - 0.5) * 0.3;
+      this.opacity = Math.random() * 0.4 + 0.1;
+      const themePastels = ['rgba(158,197,217,', 'rgba(241,178,146,', 'rgba(247,225,173,'];
+      this.assignedColor = themePastels[Math.floor(Math.random() * themePastels.length)];
     }
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
-      ctx.fillStyle = this.color + this.alpha + ')';
-      ctx.fill();
-    }
-    update() {
-      this.x += this.vx; this.y += this.vy;
-      if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) this.reset();
-      this.draw();
+    animate() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if (this.x < 0 || this.x > particleCanvas.width || this.y < 0 || this.y > particleCanvas.height) {
+        this.spawn();
+      }
+      context.beginPath();
+      context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      context.fillStyle = this.assignedColor + this.opacity + ')';
+      context.fill();
     }
   }
 
-  for (let i = 0; i < 70; i++) particles.push(new Particle());
+  for (let i = 0; i < 55; i++) dotsCollection.push(new ScreenDot());
 
-  function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => p.update());
-    requestAnimationFrame(animateParticles);
+  function runEngineLoop() {
+    context.clearRect(0, 0, particleCanvas.width, particleCanvas.height);
+    dotsCollection.forEach(dot => dot.animate());
+    requestAnimationFrame(runEngineLoop);
   }
-  animateParticles();
+  runEngineLoop();
 }
 
-// FAQ ACCORDION EXPANSION UTILS
-function toggleFaq(btn) {
-  const item = btn.closest('.faq-item');
-  const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
+// MECHANICAL ACCORDION TOGGLE EXPANSION FUNCTION
+function toggleFaq(buttonElement) {
+  const targetedItem = buttonElement.closest('.faq-item');
+  const isCurrentlyOpen = targetedItem.classList.contains('open');
+  
+  document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('open'));
+  if (!isCurrentlyOpen) {
+    targetedItem.add('open');
+  }
+}
+
+// GSAP INTELLIGENT SCROLLTRIGGER LAYOUT ANIMATIONS INTERACTION
+if (typeof gsap !== 'undefined') {
+  // Safe load backup context if ScrollTrigger is linked externally
+  document.querySelectorAll('.progress-fill').forEach(fillBar => {
+    setTimeout(() => {
+      const dataWidth = fillBar.getAttribute('data-width');
+      fillBar.style.width = dataWidth + '%';
+    }, 1000);
+  });
 }

@@ -3,127 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Us | Bunny Hugs Baby Diaper</title>
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
+  <title>Contact Us - Bunny Hugs</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#FAF8F5] text-slate-700 min-h-screen flex flex-col justify-between">
+<body style="background-color: var(--accent-cream);">
 
-  <div class="scroll-progress" id="scrollProgress"></div>
-
-  <nav class="navbar scrolled">
-    <div class="flex items-center gap-3">
-      <div class="logo-mark">B</div>
-      <div>
-        <div class="logo-text text-slate-800">BUNNY HUGS</div>
-        <div class="logo-subtext">Premium Care</div>
-      </div>
-    </div>
-    <div class="nav-links" id="desktopNavLinks">
-      <a href="index.html">Home</a>
-      <a href="index.html#features">Features</a>
-      <a href="index.html#story">Our Story</a>
-      <a href="index.html#faq">FAQ</a>
-      <a href="contact.html" class="active-link">Contact Us</a>
-    </div>
-    <div class="desktop-cta">
-      <a href="contact.html" class="btn-primary">Order Bulk</a>
-    </div>
-    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation Menu">
-      <span class="hamburger-line line-1"></span>
-      <span class="hamburger-line line-2"></span>
-      <span class="hamburger-line line-3"></span>
-    </button>
-  </nav>
-
-  <div class="mobile-nav-overlay" id="mobileNavOverlay">
-    <div class="mobile-nav-links">
-      <a href="index.html">Home</a>
-      <a href="index.html#features">Features</a>
-      <a href="index.html#story">Our Story</a>
-      <a href="index.html#faq">FAQ</a>
-      <a href="contact.html">Contact Us</a>
+  <div class="container" style="padding-top: 80px; max-width: 600px;">
+    <div style="background: var(--white); padding: 40px; border-radius: var(--radius-md); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+      <h2 style="margin-bottom: 10px; color: var(--primary-color);">Get In Touch With Us</h2>
+      <p style="margin-bottom: 24px;">Have questions about our premium product line? Drop your details below.</p>
+      
+      <form onsubmit="event.preventDefault(); alert('Message Received!');" style="display: flex; flex-direction: column; gap: 16px;">
+        <div>
+          <label style="display:block; margin-bottom:6px; font-weight:600; font-size:0.85rem;">Name</label>
+          <input type="text" placeholder="Your Name" style="width:100%; padding:12px; border:1px solid rgba(10,25,47,0.1); border-radius:var(--radius-sm); font-family:inherit;">
+        </div>
+        <div>
+          <label style="display:block; margin-bottom:6px; font-weight:600; font-size:0.85rem;">Email Address</label>
+          <input type="email" placeholder="you@domain.com" style="width:100%; padding:12px; border:1px solid rgba(10,25,47,0.1); border-radius:var(--radius-sm); font-family:inherit;">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:10px;">Send Message</button>
+      </form>
+      
+      <p style="margin-top: 20px; text-align: center;"><a href="index.html" style="color: var(--primary-light); font-size:0.9rem; font-weight:600;">&larr; Back to Home</a></p>
     </div>
   </div>
 
-  <main class="max-w-6xl mx-auto px-6 pt-32 pb-16 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-start flex-grow">
-    
-    <div class="bg-white rounded-3xl p-8 shadow-sm border border-[#9EC5D9]/20">
-      <h2 class="text-3xl font-serif font-black text-slate-800 mb-2">Get in Touch</h2>
-      <p class="text-sm text-slate-500 mb-6">Have questions about retail or bulk distribution packages? Send us a message.</p>
-      
-      <form class="flex flex-col gap-4" onsubmit="event.preventDefault();">
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Full Name</label>
-          <input type="text" placeholder="John Doe" class="w-full bg-[#FAF8F5] border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-[#9EC5D9] transition-all text-sm text-slate-800">
-        </div>
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Email Address</label>
-          <input type="email" placeholder="name@example.com" class="w-full bg-[#FAF8F5] border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-[#9EC5D9] transition-all text-sm text-slate-800">
-        </div>
-        <div>
-          <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Message Detail</label>
-          <textarea rows="4" placeholder="How can our logistics team support you?" class="w-full bg-[#FAF8F5] border border-slate-200 rounded-xl px-4 py-3 focus:outline-none focus:border-[#9EC5D9] transition-all text-sm text-slate-800"></textarea>
-        </div>
-        
-        <button type="submit" class="bg-[#F1B292] hover:bg-[#EAA380] text-slate-800 font-bold py-3.5 px-6 rounded-xl transition-all shadow-md shadow-[#F1B292]/10 mt-2 cursor-pointer text-center text-sm">
-          Submit Message
-        </button>
-      </form>
-    </div>
-
-    <div class="flex flex-col gap-8 lg:pt-6">
-      <div>
-        <h3 class="text-2xl font-serif font-black text-slate-800 mb-2">Bunny Hugs Head Office</h3>
-        <p class="text-slate-600 leading-relaxed text-sm">We process distribution pipelines, custom local retail inventory slots, and supply logistics safely across national boundaries.</p>
-      </div>
-
-      <div class="flex items-center gap-4">
-        <div class="w-12 h-12 rounded-full bg-[#C6E2CD] flex items-center justify-center text-emerald-800 shrink-0 shadow-sm">
-          <i data-lucide="map-pin" class="w-5 h-5"></i>
-        </div>
-        <div>
-          <p class="text-xs font-bold text-slate-400 uppercase tracking-wide">Location Address</p>
-          <p class="text-slate-700 font-medium text-sm">7734 Garrison Rd, Hyattsville, MD 20784, USA</p>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-4">
-        <div class="w-12 h-12 rounded-full bg-[#BCE3F2] flex items-center justify-center text-[#5A8396] shrink-0 shadow-sm">
-          <i data-lucide="mail" class="w-5 h-5"></i>
-        </div>
-        <div>
-          <p class="text-xs font-bold text-slate-400 uppercase tracking-wide">Email Enquiries</p>
-          <a href="mailto:omalworldwidellc@gmail.com" class="text-slate-700 font-medium text-sm hover:text-[#9EC5D9] transition-colors">omalworldwidellc@gmail.com</a>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-4">
-        <div class="w-12 h-12 rounded-full bg-[#F7E1AD] flex items-center justify-center text-[#B09251] shrink-0 shadow-sm">
-          <i data-lucide="phone" class="w-5 h-5"></i>
-        </div>
-        <div>
-          <p class="text-xs font-bold text-slate-400 uppercase tracking-wide">Customer Support Line</p>
-          <p class="text-slate-700 font-medium text-sm">+1-301-577-6064</p>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <footer class="bg-slate-800 text-slate-400 py-8 px-6">
-    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-center sm:text-left">
-      <p>&copy; 2026 Bunny Hugs Diaper Brand. All Rights Reserved.</p>
-      <div class="flex gap-6">
-        <a href="index.html" class="hover:text-white transition-colors">Home</a>
-        <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
-      </div>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
